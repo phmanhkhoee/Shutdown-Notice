@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hệ Thống Đã Ngừng Hoạt Động</title>
+<title>Hệ Thống Đang Bảo Trì</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <title>Hệ Thống Đang Bảo Trì</title>
 
@@ -250,17 +251,19 @@ content="https://shopvanmanh.com/">
   .panel .corner.bl{ bottom:-1px; left:-1px; }
   .panel .corner.br{ bottom:-1px; right:-1px; }
 
-  h1{
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: 0.04em;
-    line-height: 1.25;
-    color: var(--white);
-    text-shadow: 0 0 30px rgba(255,70,85,0.25);
-    margin-bottom: 22px;
-    text-transform: uppercase;
-  }
+/* ===== TIÊU ĐỀ NHẤP NHÁY KIỂU SYSTEM OFFLINE ===== */
+h1{
+  font-family:'JetBrains Mono', monospace;
+  font-weight:600;
+  font-size:34px;
+  letter-spacing:0.08em;
+  line-height:1.35;
+  color:white;
+  text-transform:uppercase;
+  text-shadow:0 0 12px rgba(255,70,85,.65);
+  margin-bottom:24px;
+  animation:codeBlink 1.8s steps(2) infinite;
+}
 
   .desc{
     font-size: 14.5px;
@@ -306,7 +309,7 @@ content="https://shopvanmanh.com/">
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .card{
@@ -314,7 +317,7 @@ content="https://shopvanmanh.com/">
     border: 1px solid rgba(255,70,85,0.18);
     background: linear-gradient(160deg, rgba(255,70,85,0.06), rgba(255,255,255,0.015));
     border-radius: 3px;
-    padding: 20px 16px;
+    padding: 12px 16px;
     transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
   }
 
@@ -530,6 +533,106 @@ content="https://shopvanmanh.com/">
   0%,100%{opacity:.35;}
   50%{opacity:1;}
 }
+/* ===== THỜI GIAN & TRẠNG THÁI - ĐỒNG BỘ PANEL ===== */
+.system-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.info-card{
+  position:relative;
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:16px 14px;
+  border:1px solid rgba(255,70,85,0.20);
+  border-radius:3px;
+  background:linear-gradient(160deg, rgba(255,70,85,0.055), rgba(255,255,255,0.012));
+  box-shadow:inset 0 0 18px rgba(255,70,85,0.025);
+  transition:.28s ease;
+}
+
+.info-card:hover{
+  border-color:rgba(255,70,85,0.48);
+  background:linear-gradient(160deg, rgba(255,70,85,0.09), rgba(255,255,255,0.018));
+  transform:translateY(-2px);
+}
+
+.info-icon{
+  width:34px;
+  height:34px;
+  min-width:34px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,70,85,0.10);
+  color:var(--red);
+  box-shadow:0 0 16px rgba(255,70,85,0.12);
+}
+
+.info-icon svg{
+  width:17px;
+  height:17px;
+  stroke:currentColor;
+}
+
+.time-icon,
+.pause-icon{
+  color:var(--red);
+  background:rgba(255,70,85,0.10);
+}
+
+.info-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:5px;
+  min-width:0;
+}
+
+.info-text span{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.16em;
+  color:var(--gray-dim);
+  text-transform:uppercase;
+}
+
+.info-text strong{
+  font-family:'Rajdhani',sans-serif;
+  font-size:19px;
+  line-height:1;
+  font-weight:700;
+  color:var(--white);
+  letter-spacing:.03em;
+}
+
+.info-card .corner{
+  width:10px;
+  height:10px;
+  opacity:.45;
+}
+
+.info-card .corner.tl{top:-1px;left:-1px;}
+.info-card .corner.tr{top:-1px;right:-1px;}
+.info-card .corner.bl{bottom:-1px;left:-1px;}
+.info-card .corner.br{bottom:-1px;right:-1px;}
+
+@media(max-width:560px){
+  .system-info{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .info-card{
+    min-height:70px;
+  }
+}
 </style>
 </head>
 <body>
@@ -574,7 +677,7 @@ content="https://shopvanmanh.com/">
       <span class="corner bl"></span>
       <span class="corner br"></span>
 
-      <h1>HỆ THỐNG ĐÃ NGỪNG HOẠT ĐỘNG</h1>
+      <h1>HỆ THống ĐANG BẢO TRÌ</h1>
 
       <p class="desc">
         Cảm ơn Quý khách đã tin tưởng và đồng hành cùng hệ thống trong suốt thời gian qua.
@@ -589,7 +692,7 @@ content="https://shopvanmanh.com/">
       </div>
 
       <div class="eyebrow">Hỗ Trợ Khách Hàng</div>
-
+      
       <div class="cards">
         <div class="card">
           <span class="corner tl"></span>
@@ -614,9 +717,50 @@ content="https://shopvanmanh.com/">
           <div class="card-number">0984 989 889</div>
         </div>
       </div>
+      <!-- THỜI GIAN + TRẠNG THÁI -->
+<div class="system-info">
+  <div class="info-card">
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+
+    <div class="info-icon time-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="8.5"></circle>
+        <path d="M12 7v5l3.2 2"></path>
+      </svg>
+    </div>
+
+    <div class="info-text">
+      <span>Thời gian</span>
+      <strong>ĐANG CẬP NHẬT</strong>
+    </div>
+  </div>
+
+  <div class="info-card status-info">
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+
+    <div class="info-icon pause-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3.5 21 20.5H3L12 3.5Z"></path>
+        <path d="M12 9v4.5"></path>
+        <path d="M12 17h.01"></path>
+      </svg>
+    </div>
+
+    <div class="info-text">
+      <span>Trạng thái</span>
+      <strong>TẠM NGƯNG</strong>
+    </div>
+  </div>
+</div>
 
       <a class="cta" href="https://drive.google.com/drive/u/0/folders/1gEACpt0sGdum8qCkcQogNtB2FUcDgKlB" target="_blank" rel="noopener noreferrer">
-        Tham Khảo Kho Sản Phẩm
+        Chuyển Sang Drive Để Xem Sản Phẩm
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
       </a>
     </div>
