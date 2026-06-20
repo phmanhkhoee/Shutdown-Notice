@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
 <title>Hệ Thống Đang Bảo Trì</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -427,13 +428,75 @@ h1{
     opacity: 0.7;
   }
 
-  /* ===== Responsive ===== */
-  @media (max-width: 560px){
-    .panel{ padding: 44px 24px 36px; }
-    h1{ font-size: 26px; }
-    .cards{ grid-template-columns: 1fr; }
-    .desc{ font-size: 13.5px; }
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 560px){
+
+  body{
+    padding: 30px 14px;
+    align-items: flex-start;
   }
+
+  /* Thu toàn bộ giao diện còn 80% */
+  .stage{
+    width: 125%;
+    transform: scale(.8);
+    transform-origin: center top;
+  }
+
+  .panel{
+    padding: 44px 24px 36px;
+  }
+
+  h1{
+    font-size: 26px;
+  }
+
+  .desc{
+    font-size: 13.5px;
+  }
+
+  /* Zalo + Hotline xếp dọc */
+  .cards{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Thời gian + trạng thái xếp dọc, không còn lệch */
+  .system-info{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+
+  .card,
+  .info-card{
+    width: 100%;
+    min-height: 86px;
+  }
+
+  .info-card{
+    justify-content: center;
+  }
+
+  .info-text{
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-text strong{
+    font-size: 21px;
+    white-space: nowrap;
+  }
+
+  .card-number{
+    font-size: 23px;
+  }
+
+  .cta{
+    font-size: 14px;
+    padding: 18px 16px;
+  }
+}
 
   @media (prefers-reduced-motion: reduce){
     .icon-ring.spin, .icon-ring.spin-rev{ animation: none; }
@@ -623,15 +686,14 @@ h1{
 .info-card .corner.bl{bottom:-1px;left:-1px;}
 .info-card .corner.br{bottom:-1px;right:-1px;}
 
-@media(max-width:560px){
-  .system-info{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-
-  .info-card{
-    min-height:70px;
-  }
+/* Không cho iPhone tự đổi số điện thoại sang xanh */
+.card-number,
+.card-number a,
+a[href^="tel"]{
+  color: var(--white) !important;
+  text-decoration: none !important;
+  -webkit-text-fill-color: var(--white) !important;
+}
 }
 </style>
 </head>
