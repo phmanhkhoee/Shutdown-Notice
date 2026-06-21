@@ -907,40 +907,62 @@ a[href^="tel"]{
   }
 }
 
-/* Tablet / điện thoại: thu thành thanh icon bên phải */
-@media(max-width: 1100px){
+/* ===== MOBILE: ĐỔI CỘNG ĐỒNG THÀNH THANH NGANG DƯỚI ===== */
+@media(max-width: 560px){
   .community-bar{
-    right: 12px;
-    width: 62px;
-    padding: 8px;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: 18px;
+    transform: translateX(-50%);
+    width: calc(100% - 28px);
+    max-width: 420px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    clip-path: none;
+    border-radius: 4px;
+    background: rgba(8,14,20,.96);
   }
 
-  .community-title,
-  .community-text,
-  .community-arrow{
+  .community-title{
     display: none;
   }
 
   .community-item{
+    margin: 0;
+    min-height: 54px;
+    padding: 8px 4px;
     justify-content: center;
-    min-height: 50px;
-    margin-top: 7px;
+    clip-path: polygon(0 0,100% 0,100% 78%,84% 100%,0 100%);
   }
 
   .community-dot{
-    width: 12px;
-    height: 12px;
-    flex-basis: 12px;
+    display: none;
   }
-}
 
-@media(max-width: 560px){
-  .community-bar{
-    top: auto;
-    bottom: 18px;
-    transform: none;
-    right: 10px;
-    z-index: 1001;
+  .community-text{
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .community-text strong{
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .community-text small{
+    display: none;
+  }
+
+  .community-arrow{
+    display: none;
+  }
+
+  body{
+    padding-bottom: 110px;
   }
 }
 </style>
