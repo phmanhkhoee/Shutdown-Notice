@@ -907,67 +907,57 @@ a[href^="tel"]{
   }
 }
 
-/* ===== MOBILE: CỘNG ĐỒNG NẰM SAU NỘI DUNG, KHÔNG CHE WEB ===== */
+/* ===== MOBILE: ĐỔI CỘNG ĐỒNG THÀNH THANH NGANG DƯỚI ===== */
 @media(max-width: 560px){
   .community-bar{
-    position: relative;
-    left: auto;
+    position: fixed;
+    left: 50%;
     right: auto;
     top: auto;
-    bottom: auto;
-    transform: none;
-
-    width: calc(100% - 28px);
-    max-width: 420px;
-    margin: 22px auto 30px;
-    padding: 10px;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-
+    bottom: 14px;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    max-width: 390px;
+    padding: 8px;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    z-index: 9999;
     clip-path: none;
     border-radius: 4px;
-    background: rgba(8,14,20,.96);
   }
 
   .community-title{
-    display: block;
-    grid-column: 1 / -1;
-    margin: 2px 0 6px;
-    font-size: 10px;
+    display: none !important;
   }
 
   .community-item{
+    display: flex !important;
     margin: 0;
-    min-height: 54px;
-    padding: 8px 6px;
+    min-height: 46px;
+    padding: 6px 4px;
     justify-content: center;
-    clip-path: polygon(0 0,100% 0,100% 78%,84% 100%,0 100%);
-  }
-
-  .community-dot{
-    display: none;
   }
 
   .community-text{
-    display: flex;
-    align-items: center;
+    display: flex !important;
     text-align: center;
+    align-items: center;
   }
 
   .community-text strong{
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
   }
 
   .community-text small,
-  .community-arrow{
-    display: none;
+  .community-arrow,
+  .community-dot{
+    display: none !important;
   }
 
   body{
-    padding-bottom: 30px;
+    padding-bottom: 95px;
   }
 }
 </style>
