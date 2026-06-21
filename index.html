@@ -437,11 +437,12 @@ h1{
   }
 
   /* Thu toàn bộ giao diện còn 80% */
-  .stage{
-    width: 125%;
-    transform: scale(.8);
-    transform-origin: center top;
-  }
+.stage{
+  width: 100%;
+  max-width: 620px;
+  transform: none;
+  margin: 0 auto;
+}
 
   .panel{
     padding: 44px 24px 36px;
@@ -759,14 +760,15 @@ a[href^="tel"]{
   transform: translateX(0);
 }
 
-@media(max-width:560px){
-  .floating-social{
-    right: 12px;
-    bottom: 90px;
-    gap: 10px;
-    transform: scale(.82);
-    transform-origin: right bottom;
-  }
+body{
+  padding: 28px 14px 110px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.panel{
+  width: 100%;
+  padding: 42px 18px 34px;
 }
 /* ===== HIỆU ỨNG NHẤP NHÁY SOCIAL ===== */
 .social-icon{
@@ -959,6 +961,20 @@ a[href^="tel"]{
   body{
     padding-bottom: 95px;
   }
+
+  .floating-social{
+  position: fixed;
+  right: 8px;
+  top: 68%;
+  bottom: auto;
+  transform: translateY(-50%) scale(.78);
+  transform-origin: right center;
+  z-index: 9999;
+}
+
+.social-label{
+  display: none !important;
+}
 }
 </style>
 </head>
@@ -1104,9 +1120,9 @@ a[href^="tel"]{
     <span class="social-icon">Discord</span>
   </a>
 
-  <a href="https://www.facebook.com/ShopAccVanManh/" target="_blank" class="social-item">
-    <span class="social-label">Messenger</span>
-    <span class="social-icon">Chat</span>
+  <a href="https://vstore.lol/" target="_blank" class="social-item">
+    <span class="social-label">Check Kho Đồ</span>
+    <span class="social-icon">Vstore</span>
   </a>
 
   <a href="https://zalo.me/0332420815" target="_blank" class="social-item">
