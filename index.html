@@ -976,13 +976,20 @@ body{
   display: none !important;
 }
 }
+@media(max-width:560px){
+  .info-card{
+    gap: 8px !important;
+    padding: 14px 8px !important;
+    overflow: hidden !important;
+  }
+
+  .info-text strong{
+    font-size: 18px !important;
+    white-space: nowrap !important;
+  }
+}
 /* ===== FIX MOBILE KHÔNG CHE NỘI DUNG ===== */
 @media(max-width:560px){
-
-  /* Ẩn thanh Discord/Vstore/Zalo bên phải trên điện thoại */
-  .floating-social{
-    display: none !important;
-  }
 
   /* Box Zalo không fixed nữa, nằm trong luồng trang */
   .community-bar{
