@@ -907,33 +907,41 @@ a[href^="tel"]{
   }
 }
 
-/* ===== MOBILE: ĐỔI CỘNG ĐỒNG THÀNH THANH NGANG DƯỚI ===== */
+/* ===== MOBILE: CỘNG ĐỒNG NẰM SAU NỘI DUNG, KHÔNG CHE WEB ===== */
 @media(max-width: 560px){
   .community-bar{
-    left: 50%;
+    position: relative;
+    left: auto;
     right: auto;
     top: auto;
-    bottom: 18px;
-    transform: translateX(-50%);
+    bottom: auto;
+    transform: none;
+
     width: calc(100% - 28px);
     max-width: 420px;
+    margin: 22px auto 30px;
     padding: 10px;
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+
     clip-path: none;
     border-radius: 4px;
     background: rgba(8,14,20,.96);
   }
 
   .community-title{
-    display: none;
+    display: block;
+    grid-column: 1 / -1;
+    margin: 2px 0 6px;
+    font-size: 10px;
   }
 
   .community-item{
     margin: 0;
     min-height: 54px;
-    padding: 8px 4px;
+    padding: 8px 6px;
     justify-content: center;
     clip-path: polygon(0 0,100% 0,100% 78%,84% 100%,0 100%);
   }
@@ -953,16 +961,13 @@ a[href^="tel"]{
     line-height: 1;
   }
 
-  .community-text small{
-    display: none;
-  }
-
+  .community-text small,
   .community-arrow{
     display: none;
   }
 
   body{
-    padding-bottom: 110px;
+    padding-bottom: 30px;
   }
 }
 </style>
