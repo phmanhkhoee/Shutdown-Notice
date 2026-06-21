@@ -437,12 +437,11 @@ h1{
   }
 
   /* Thu toàn bộ giao diện còn 80% */
-.stage{
-  width: 100%;
-  max-width: 620px;
-  transform: none;
-  margin: 0 auto;
-}
+  .stage{
+    width: 125%;
+    transform: scale(.8);
+    transform-origin: center top;
+  }
 
   .panel{
     padding: 44px 24px 36px;
@@ -760,15 +759,14 @@ a[href^="tel"]{
   transform: translateX(0);
 }
 
-body{
-  padding: 28px 14px 110px;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.panel{
-  width: 100%;
-  padding: 42px 18px 34px;
+@media(max-width:560px){
+  .floating-social{
+    right: 12px;
+    bottom: 90px;
+    gap: 10px;
+    transform: scale(.82);
+    transform-origin: right bottom;
+  }
 }
 /* ===== HIỆU ỨNG NHẤP NHÁY SOCIAL ===== */
 .social-icon{
@@ -961,91 +959,6 @@ body{
   body{
     padding-bottom: 95px;
   }
-
-  .floating-social{
-  position: fixed;
-  right: 8px;
-  top: 68%;
-  bottom: auto;
-  transform: translateY(-50%) scale(.78);
-  transform-origin: right center;
-  z-index: 9999;
-}
-
-.social-label{
-  display: none !important;
-}
-}
-@media(max-width:560px){
-  .info-card{
-    gap: 8px !important;
-    padding: 14px 8px !important;
-    overflow: hidden !important;
-  }
-
-  .info-text strong{
-    font-size: 18px !important;
-    white-space: nowrap !important;
-  }
-}
-/* ===== FIX MOBILE KHÔNG CHE NỘI DUNG ===== */
-@media(max-width:560px){
-
-  /* Box Zalo không fixed nữa, nằm trong luồng trang */
-  .community-bar{
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-
-    width: 100% !important;
-    max-width: none !important;
-    margin: 18px auto 0 !important;
-    padding: 10px !important;
-
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
-
-    clip-path: none !important;
-    border-radius: 4px;
-    z-index: 10 !important;
-  }
-
-  .community-title{
-    display: block !important;
-    grid-column: 1 / -1;
-    margin-bottom: 6px;
-  }
-
-  .community-item{
-    min-height: 46px !important;
-    margin: 0 !important;
-    padding: 8px 4px !important;
-    justify-content: center;
-  }
-
-  .community-text{
-    display: flex !important;
-    text-align: center;
-    align-items: center;
-  }
-
-  .community-text strong{
-    font-size: 12px !important;
-  }
-
-  .community-text small,
-  .community-arrow,
-  .community-dot{
-    display: none !important;
-  }
-
-  body{
-    padding-bottom: 32px !important;
-  }
 }
 </style>
 </head>
@@ -1191,7 +1104,7 @@ body{
     <span class="social-icon">Discord</span>
   </a>
 
-  <a href="https://vstore.lol/" target="_blank" class="social-item">
+  <a href="https://www.facebook.com/ShopAccVanManh/" target="_blank" class="social-item">
     <span class="social-label">Check Kho Đồ</span>
     <span class="social-icon">Vstore</span>
   </a>
